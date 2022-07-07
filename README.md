@@ -1,6 +1,6 @@
 # 摸鱼遥感平台
 
-这个参加第十一届 “中国软件杯”大学生软件设计大赛遥感解译赛道的前后端源码。由(Hao Wen,XiaoDong Ji,XiangPeng Hu,XinTong Zhou)四人团队完成。
+这个参加第十一届 “中国软件杯”大学生软件设计大赛遥感解译赛道的前后端源码。由来自北京航空航天大学的(Hao Wen,XiaoDong Ji,XiangPeng Hu,XinTong Zhou)四人团队完成。
 
 
 ## 功能简介
