@@ -1,5 +1,8 @@
-# 摸鱼遥感平台
 
+# 摸鱼遥感平台
+<div align="center">
+<img src="img/2022-07-10-13-45-17.png" width = "350" />
+</div>
 这个参加第十一届 “中国软件杯”大学生软件设计大赛遥感解译赛道的前后端源码。由来自北京航空航天大学的(Hao Wen,XiaoDong Ji,XiangPeng Hu,XinTong Zhou)四人团队完成。
 
 **体验账户**
@@ -37,18 +40,29 @@ http://101.43.134.156/
 
 目标检测的训练数据集为[DOTA1.5](https://captain-whu.github.io/DOAI2019/), DOTA-v1.5数据集一共有16个类别，包含40万个带注释的对象实例。我们使用[PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection)框架下的轻量级系列模型`PP-PicoDet`模型训练了50轮, 最终在验证集上的mAP达到了0.6483。
 
-#### 地物分类
+其网络结构图如下:
 
-目标提取的训练数据集为WHDLD数据集,数据集中包含4940张遥感影像及对应地物分类标记样本，影像大小为256x256像素，影像以jpg格式存储，标签数据格式为单通道的png图像,数据覆盖包括6类地貌：裸地、建筑物、人行道、道路、植被、水域。我们使用了[PaddleSeg](https://github.com/PaddlePaddle/PaddleSeg)的`STDC1`网络最终在验证集上达到了68.10%的mIOU。
+![](img/2022-07-10-13-49-29.png)
+
+#### 目标提取
+
+
+目标提取的训练数据集为 [DeepGlobe Road Dataset](https://competitions.codalab.org/competitions/18467#participate-get_starting_kit)。 在CVPR2018上, DeepGlobe Road Extraction Challenge提出了从卫星图像中自动提取道路和街道网络的挑战。我们使用了[PaddleSeg](https://github.com/PaddlePaddle/PaddleSeg)的`PP-LiteSeg`网络,使用的训练项目为AIStudio项目[PP-LiteSeg模型应用案例——遥感道路分割](https://aistudio.baidu.com/aistudio/projectdetail/3873145?channelType=0&channel=0), 能在测试集达到83.08%的mIOU。
+
+其网络图如下:
+
+![](img/2022-07-10-13-52-04.png)
 
 #### 变化检测
 
 变化检测的训练数据集为[LEVIR-CD](https://justchenhao.github.io/LEVIR/), LEVIR-CD是一种新型的大规模遥感建筑物变化检测数据集。由637个超高分辨率（VHR，0.5m/像素）谷歌地球（GE）图像补丁对组成，大小为1024×1024像素。我们使用了[PaddleSeg](https://github.com/PaddlePaddle/PaddleSeg)下的`hrnet18`进行了训练, 最终在验证集上达到了`F1 = 0.8975`。
 
-#### 目标提取
+![](img/2022-07-10-13-53-53.png)
 
+#### 地物分类
 
-目标提取的训练数据集为 [DeepGlobe Road Dataset](https://competitions.codalab.org/competitions/18467#participate-get_starting_kit)。 在CVPR2018上, DeepGlobe Road Extraction Challenge提出了从卫星图像中自动提取道路和街道网络的挑战。我们使用了[PaddleSeg](https://github.com/PaddlePaddle/PaddleSeg)的`STDC1`网络,使用的训练项目为AIStudio项目[PP-LiteSeg模型应用案例——遥感道路分割](https://aistudio.baidu.com/aistudio/projectdetail/3873145?channelType=0&channel=0), 能在测试集达到83.08%的mIOU。
+目标提取的训练数据集为WHDLD数据集,数据集中包含4940张遥感影像及对应地物分类标记样本，影像大小为256x256像素，影像以jpg格式存储，标签数据格式为单通道的png图像,数据覆盖包括6类地貌：裸地、建筑物、人行道、道路、植被、水域。我们同样使用了[PaddleSeg](https://github.com/PaddlePaddle/PaddleSeg)的`PP-LiteSeg`网络最终在验证集上达到了68.10%的mIOU。
+
 
 ### 使用技术
 
@@ -103,6 +117,11 @@ http://101.43.134.156/
 
 ### 界面展示图
 
+#### 项目主页
+
+![](img/2022-07-10-13-55-05.png)
+
+
 #### 个人主页
 
 ![](img/2022-07-07-20-28-14.png)
@@ -137,4 +156,8 @@ docker-compose up
 
 模型文件在后端仓库的`params`文件夹下面。 在实际运行之中需要将其复制到`backend/params`目录(默认该目录不存在)下即可。
 
+### 感谢
 
+- 感谢百度[AIStudio](https://aistudio.baidu.com/aistudio/index)提供的V100算力以及[PaddlePaddle]()支持
+
+- 感谢用户[13006307475](https://aistudio.baidu.com/aistudio/personalcenter/thirdview/60535)开源项目提供的预训练模型。
