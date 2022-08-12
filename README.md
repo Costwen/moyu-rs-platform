@@ -14,7 +14,7 @@ password: demo
 
 **在线体验地址**
 
-http://101.43.134.156/
+https://moyurs.xyz/
 
 ## 功能简介
 
@@ -48,6 +48,8 @@ http://101.43.134.156/
 
 
 目标提取的训练数据集为 [DeepGlobe Road Dataset](https://competitions.codalab.org/competitions/18467#participate-get_starting_kit)。 在CVPR2018上, DeepGlobe Road Extraction Challenge提出了从卫星图像中自动提取道路和街道网络的挑战。我们使用了[PaddleSeg](https://github.com/PaddlePaddle/PaddleSeg)的`PP-LiteSeg`网络,使用的训练项目为AIStudio项目[PP-LiteSeg模型应用案例——遥感道路分割](https://aistudio.baidu.com/aistudio/projectdetail/3873145?channelType=0&channel=0), 能在测试集达到83.08%的mIOU。
+
+此外还额外支持了建筑提取, 水体提取等多种目标提取任务。
 
 其网络图如下:
 
@@ -109,6 +111,14 @@ http://101.43.134.156/
 #### 道路提取
 
 ![](img/2022-07-30-14-01-21.png)
+
+#### 建筑提取
+
+![](img/2022-08-12-23-14-56.png)
+
+#### 水体提取
+
+![](img/2022-08-12-23-15-16.png)
 
 #### 变化检测
 
